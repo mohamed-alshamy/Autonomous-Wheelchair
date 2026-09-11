@@ -76,7 +76,7 @@ Safety-related capabilities include:
 <p align="center">
 
 <a href="https://youtu.be/qC3RIVg91yc">
-<img src="https://img.youtube.com/vi/ZktnqMIp0q0/0.jpg" width="300">
+<img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/NEURONIX.png" width="300">
 </a>
 
 </p>
