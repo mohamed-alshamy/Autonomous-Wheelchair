@@ -1,167 +1,59 @@
-# ♿ Autonomous Wheelchair
+# ♿ MAVERICK: AI-Powered Autonomous Wheelchair System
 
 <p align="center">
-  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/MAVERICK" width="550">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/MAVERICK" width="650" alt="MAVERICK Banner">
 </p>
 
 <p align="center">
-  <b>AI-Powered Autonomous Wheelchair for Intelligent, Safe, and Assistive Mobility</b>
+  <b>An Industrial-Grade, AI-Driven Autonomous Mobility Platform for Assistive Navigation, Edge Perception, and Biometric Safety</b>
 </p>
-
----
-
-## 📌 About The Project
-
-**Autonomous Wheelchair** is an AI-powered smart mobility system designed to assist wheelchair users through **autonomous navigation, computer vision, embedded control, and intelligent safety monitoring**.
-
-The system combines an **NVIDIA Jetson Orin Nano**, **ESP32**, **ROS 2**, and multiple AI/CV modules to provide both **manual and autonomous operation** while continuously monitoring the surrounding environment and the user's safety.
-
-The project was developed as a graduation project with a focus on integrating:
-
-- 🤖 Autonomous Robotics
-- 👁️ Computer Vision
-- 🧠 Edge AI
-- 🔌 Embedded Systems
-- 🗺️ Autonomous Navigation
-- 🛡️ Intelligent Safety
-- 🌐 Web-Based Control & Monitoring
-
----
-
-## 🚀 Features
-
-### 🤖 Autonomous Navigation
-
-- Autonomous movement and navigation
-- Real-time environmental perception
-- Obstacle detection and avoidance
-- Navigation based on predefined destinations
-- ROS 2-based robotic control
-
-### 👁️ Computer Vision
-
-- Object detection using **YOLOv8**
-- Face recognition using **DeepFace / FaceNet**
-- Drowsiness detection
-- Head-pose monitoring
-- Seatbelt detection
-- Floor/sign detection
-- Real-time camera-based environmental understanding
-
-### 🧑‍🦽 User Assistance
-
-- User recognition
-- Personalized user profiles
-- Manual driving mode
-- Autonomous driving mode
-- Destination selection
-- Real-time system status
-
-### 🛡️ Safety System
-
-The wheelchair continuously monitors important safety conditions using computer vision, sensors, and embedded control.
-
-Safety-related capabilities include:
-
-- Obstacle detection
-- Drowsiness monitoring
-- Seatbelt monitoring
-- Environmental awareness
-- Emergency/manual intervention
-- Real-time system monitoring
-
----
-
-## 🎥 Project Demo
 
 <p align="center">
-
-<a href="https://youtu.be/qC3RIVg91yc">
-<img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/NEURONIX.png" width="300">
-</a>
-
+  <a href="https://docs.ros.org/en/humble/"><img src="https://img.shields.io/badge/ROS_2-Humble-blue.svg" alt="ROS 2"></a>
+  <a href="https://developer.nvidia.com/embedded/jetson-orin-nano-developer-kit"><img src="https://img.shields.io/badge/Hardware-NVIDIA_Jetson_Orin_Nano_8GB-76B900.svg" alt="NVIDIA Jetson"></a>
+  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/Backend-FastAPI-009688.svg" alt="FastAPI"></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React_18-61DAFB.svg" alt="React"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
 </p>
-
-> Click the **NEURONIX logo** to explore project demonstrations, testing scenarios, and autonomous navigation experiments.
 
 ---
 
-# 🧩 System Architecture
+## 📌 Executive Summary & Architecture Overview
+
+**Project MAVERICK** is a high-performance, edge-AI-driven autonomous mobility platform designed under **NEURONIX Intelligence**. Built to address complex assistive navigation challenges, MAVERICK merges high-level heterogeneous edge computing with low-level deterministic motor control.
+
+The system features real-time spatial awareness, multi-camera perception, multi-modal biometric user monitoring, dynamic obstacle avoidance, and dynamic drive-mode execution (Manual / Autonomous).
+
+Designed natively for the **NVIDIA Jetson Orin Nano (8GB)** running **ROS 2**, MAVERICK uses specialized hardware acceleration for deep learning pipelines and an **ESP32** microcontroller for real-time safety interlocks, sensor aggregation, and PWM actuation.
+
+---
+
+## 🚀 Key Features
+
+* 🤖 **Autonomous Navigation & SLAM:** Dynamic path planning, localized costmap generation, dynamic obstacle avoidance, and predefined goal-point navigation via ROS 2.
+* 👁️ **Multi-Camera Edge Vision:** Simultaneous multi-camera handling for forward spatial detection, rear collision monitoring, and user biometric state analysis.
+* 🧠 **Real-Time Edge AI:** Hardware-accelerated inference for object detection, biometric identity verification, driver drowsiness, head pose, and seatbelt enforcement.
+* 🔌 **Hardware-Level Safety Interlocks:** Multi-sensor spatial fusion (Ultrasonic array + IMU) integrated directly into the ESP32 low-level firmware for zero-latency emergency braking.
+* 🖥️ **Dark-Robotics Telemetry Dashboard:** A sleek, high-refresh-rate web UI running on a 7-inch touchscreen for real-time controls, system metrics, and live stream overlays.
+
+---
+
+## 🎥 Project Demonstration
 
 <p align="center">
-  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Architecture.jpeg" width="850">
+  <a href="https://youtu.be/qC3RIVg91yc" target="_blank">
+    <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/NEURONIX.png" width="350" alt="MAVERICK Demo">
+  </a>
 </p>
 
-The system architecture integrates the wheelchair's **AI, Computer Vision, Autonomous Navigation, Embedded Control, Backend, Database, and User Interface** into a unified intelligent mobility platform.
-
-The architecture is built around the **NVIDIA Jetson Orin Nano** for high-level AI and perception, while the **ESP32** handles low-level real-time control and communication with the wheelchair's drive system.
-
-The complete system is organized into:
-
-- 🧠 **AI & Computer Vision**
-- 🤖 **Autonomous Navigation**
-- 🔌 **Embedded Control**
-- 🌐 **Backend & Database**
-- 🖥️ **User Dashboard**
-- ⚙️ **Motor & Hardware Control**
+> 💬 **Click the NEURONIX logo above** to watch full operational demos, field trials, autonomous navigation tests, and safety interlock validations.
 
 ---
 
-## Hardware Components
+## 🧩 System Architecture
 
-The Autonomous Wheelchair combines **Edge AI computing, embedded control, motor systems, multi-camera perception, ultrasonic sensing, IMU-based motion feedback, and a dedicated user interface** into an integrated assistive mobility platform.
+<p align="center">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Architecture.jpeg" width="900" alt="System Architecture Diagram">
+</p>
 
-### 🧠 AI & Processing Unit
-
-- **NVIDIA Jetson Orin Nano 8GB** — Main AI and computing platform
-- **SSD Storage** — System, models, and application storage
-- **7-inch Touchscreen** — Main user interface and dashboard
-
-### 🔌 Embedded Control
-
-- **ESP32** — Low-level real-time controller
-- **Motor Drivers** — Motor speed and direction control
-- **Embedded Communication** — Communication between the Jetson Orin Nano and the ESP32
-
-### ⚙️ Drive System
-
-- **2 × ZD101ZA1 Motors**
-- **250W per motor**
-- **24V**
-- **160 RPM**
-- **24V / 12Ah Lithium Battery**
-
-### 📷 Vision & Sensors
-
-The wheelchair uses a **three-camera vision system** combined with ultrasonic sensors and an IMU to provide environmental perception, user monitoring, and motion awareness.
-
-#### Three-Camera System
-
-- **Front Camera** — Primary camera facing forward for environment perception, object detection, obstacle detection, and autonomous navigation.
-- **Rear Camera** — Monitors the area behind the wheelchair and supports rear-side awareness and safe movement.
-- **User-Facing Camera** — Monitors the user for face recognition, drowsiness detection, head-pose estimation, and safety-related analysis.
-
-#### Distance & Motion Sensors
-
-- **6 × Ultrasonic Sensors** — 360° proximity and obstacle-distance monitoring around the wheelchair.
-- **IMU (Inertial Measurement Unit)** — Provides motion and orientation data to support navigation, movement monitoring, and system awareness.
-
-### 🖥️ User Interface & Dashboard
-
-The wheelchair features a dedicated **7-inch touchscreen dashboard** that serves as the primary user interface for interacting with and monitoring the system.
-
-The dashboard provides:
-
-- 👤 **User Profile & Recognition**
-- 🤖 **Manual / Autonomous Mode Selection**
-- 🗺️ **Navigation Map & Route Information**
-- 📍 **Destination Selection**
-- 🎮 **Manual Wheelchair Control**
-- 🚀 **Real-Time Speed Monitoring**
-- 🛡️ **Safety & Obstacle Status**
-- 📷 **Camera & Perception Status**
-- 🔋 **System & Battery Information**
-- 📡 **Real-Time System Monitoring**
-- ⚙️ **Wheelchair Operating Status**
-
-The dashboard connects the user with the wheelchair's **AI, navigation, safety, and embedded control systems**, providing a centralized interface for both operation and system monitoring.
+The system operates on a multi-tiered architecture separating **High-Level Compute (Edge AI & Navigation)** from **Low-Level Actuation (Microcontroller & Power Electronics)**:
