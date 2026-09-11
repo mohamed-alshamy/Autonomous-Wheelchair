@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 15% 7%;
+    --foreground: 210 40% 92%;
+
+    --card: 228 15% 11%;
+    --card-foreground: 210 40% 92%;
+
+    --popover: 228 15% 11%;
+    --popover-foreground: 210 40% 92%;
+
+    --primary: 187 82% 53%;
+    --primary-foreground: 228 15% 7%;
+
+    --secondary: 228 15% 15%;
+    --secondary-foreground: 210 40% 92%;
+
+    --muted: 228 15% 15%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 142 69% 58%;
+    --accent-foreground: 228 15% 7%;
+
+    --destructive: 350 89% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 187 82% 53% / 0.1;
+    --input: 228 15% 18%;
+    --ring: 187 82% 53%;
+
+    --radius: 0.75rem;
+
+    --surface: 228 15% 11%;
+    --cyan: 187 82% 53%;
+    --neon-green: 142 69% 58%;
+    --rose: 350 89% 60%;
+    --amber: 38 92% 50%;
+
+    --sidebar-background: 228 15% 9%;
+    --sidebar-foreground: 210 40% 92%;
+    --sidebar-primary: 187 82% 53%;
+    --sidebar-primary-foreground: 228 15% 7%;
+    --sidebar-accent: 228 15% 15%;
+    --sidebar-accent-foreground: 210 40% 92%;
+    --sidebar-border: 187 82% 53% / 0.1;
+    --sidebar-ring: 187 82% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+  }
+}
+
+@layer utilities {
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--cyan) / 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 10px hsl(var(--cyan) / 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 10px hsl(var(--neon-green) / 0.3);
+  }
+
+  .scan-line {
+    box-shadow: 0 0 15px hsl(var(--cyan));
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--cyan) / 0.3);
+  border-radius: 2px;
+}
+
+/* Mobile bottom nav safe area */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+/* Add bottom padding on mobile so content isn't hidden behind bottom nav */
+@media (max-width: 1023px) {
+  main {
+    padding-bottom: 4rem !important;
+  }
+}
