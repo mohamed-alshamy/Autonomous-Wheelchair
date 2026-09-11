@@ -74,7 +74,11 @@ Safety-related capabilities include:
 ## 🎥 Project Demo
 
 <p align="center">
-  <!-- Add YouTube/project demonstration link here -->
+
+<a href="https://youtu.be/qC3RIVg91yc">
+<img src="https://img.youtube.com/vi/ZktnqMIp0q0/0.jpg" width="300">
+</a>
+
 </p>
 
 > Project demonstration videos, testing scenarios, and autonomous navigation experiments will be added here.
