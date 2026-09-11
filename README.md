@@ -104,3 +104,64 @@ The complete system is organized into:
 - 🌐 **Backend & Database**
 - 🖥️ **User Dashboard**
 - ⚙️ **Motor & Hardware Control**
+
+---
+
+## Hardware Components
+
+The Autonomous Wheelchair combines **Edge AI computing, embedded control, motor systems, multi-camera perception, ultrasonic sensing, IMU-based motion feedback, and a dedicated user interface** into an integrated assistive mobility platform.
+
+### 🧠 AI & Processing Unit
+
+- **NVIDIA Jetson Orin Nano 8GB** — Main AI and computing platform
+- **SSD Storage** — System, models, and application storage
+- **7-inch Touchscreen** — Main user interface and dashboard
+
+### 🔌 Embedded Control
+
+- **ESP32** — Low-level real-time controller
+- **Motor Drivers** — Motor speed and direction control
+- **Embedded Communication** — Communication between the Jetson Orin Nano and the ESP32
+
+### ⚙️ Drive System
+
+- **2 × ZD101ZA1 Motors**
+- **250W per motor**
+- **24V**
+- **160 RPM**
+- **24V / 12Ah Lithium Battery**
+
+### 📷 Vision & Sensors
+
+The wheelchair uses a **three-camera vision system** combined with ultrasonic sensors and an IMU to provide environmental perception, user monitoring, and motion awareness.
+
+#### Three-Camera System
+
+- **Front Camera** — Primary camera facing forward for environment perception, object detection, obstacle detection, and autonomous navigation.
+- **Rear Camera** — Monitors the area behind the wheelchair and supports rear-side awareness and safe movement.
+- **User-Facing Camera** — Monitors the user for face recognition, drowsiness detection, head-pose estimation, and safety-related analysis.
+
+#### Distance & Motion Sensors
+
+- **6 × Ultrasonic Sensors** — 360° proximity and obstacle-distance monitoring around the wheelchair.
+- **IMU (Inertial Measurement Unit)** — Provides motion and orientation data to support navigation, movement monitoring, and system awareness.
+
+### 🖥️ User Interface & Dashboard
+
+The wheelchair features a dedicated **7-inch touchscreen dashboard** that serves as the primary user interface for interacting with and monitoring the system.
+
+The dashboard provides:
+
+- 👤 **User Profile & Recognition**
+- 🤖 **Manual / Autonomous Mode Selection**
+- 🗺️ **Navigation Map & Route Information**
+- 📍 **Destination Selection**
+- 🎮 **Manual Wheelchair Control**
+- 🚀 **Real-Time Speed Monitoring**
+- 🛡️ **Safety & Obstacle Status**
+- 📷 **Camera & Perception Status**
+- 🔋 **System & Battery Information**
+- 📡 **Real-Time System Monitoring**
+- ⚙️ **Wheelchair Operating Status**
+
+The dashboard connects the user with the wheelchair's **AI, navigation, safety, and embedded control systems**, providing a centralized interface for both operation and system monitoring.
