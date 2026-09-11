@@ -81,7 +81,7 @@ Safety-related capabilities include:
 
 </p>
 
-> Project demonstration videos, testing scenarios, and autonomous navigation experiments will be added here.
+> Click the **NEURONIX logo** to explore project demonstrations, testing scenarios, and autonomous navigation experiments.
 
 ---
 
