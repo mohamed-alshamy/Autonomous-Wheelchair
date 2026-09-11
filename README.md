@@ -195,14 +195,31 @@ cd ../ui_dashboard
 npm install
 npm run dev
 ```
+
 ---
 
-👥 Engineering & Credits
+## 🏛️ Institutional Collaboration & Key Recognition
+
+Project **MAVERICK** is developed under the auspices and partnership of key national technology and inclusion initiatives:
+
+* **Ministry of Communications and Information Technology (MCIT)** — Supporting innovation in assistive technologies and accessible digital solutions.
+* **National Academy of Information Technology for Persons with Disabilities (NAID)** — Strategic collaboration and technical framework alignment for empowering persons with disabilities through advanced AI & Robotics.
+
+### 🎖️ National Distinction & Honors
+Project **MAVERICK** was selected among the **Top 10 Flagship Engineering Projects** nationwide to be presented before high-level government leadership, including:
+* The **Minister of Defense**
+* The **Minister of Industry**
+* The **Minister of Higher Education and Scientific Research**
+* The **Minister of Health and Population**
+
+---
+
+## 👥 Engineering & Credits
 Project MAVERICK is designed, architected, and maintained by:
 
 Mohamed Elsayed Alshamy — Lead System Architect, AI & Robotics Engineer
 
 Developed as a flagship intelligent mobility platform under NEURONIX Intelligence.
 
-📄 License
+## 📄 License
 This repository is distributed under the MIT License. See the LICENSE file for details.
