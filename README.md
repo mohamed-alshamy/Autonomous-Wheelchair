@@ -1,8 +1,7 @@
 # ♿ Autonomous Wheelchair
 
 <p align="center">
-  <https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/MAVERICK>
-  <img src="./Autonomous Wheelchair.jpg" width="550">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/MAVERICK" width="550">
 </p>
 
 <p align="center">
