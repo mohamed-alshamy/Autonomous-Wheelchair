@@ -81,3 +81,115 @@ The system operates on a multi-tiered architecture separating **High-Level Compu
 ---
 
 ## 💻 Software & Technology Stack
+
+Project-MAVERICK/
+├── docs/                        # Architecture diagrams, mechanical CAD & specifications
+├── firmware_esp32/              # Low-level C++ Arduino/FreeRTOS embedded code
+│   ├── src/
+│   │   ├── main.cpp             # Serial parser, PWM generator, state machines
+│   │   ├── motors.cpp           # BTS7960 driver integration
+│   │   └── sensors.cpp          # Ultrasonic array & IMU processing
+├── maverick_ros2/               # ROS 2 Workspaces & packages
+│   ├── maverick_bringup/        # System-wide launch files & configurations
+│   ├── maverick_navigation/     # Nav2 parameters, costmaps, planner configs
+│   ├── maverick_perception/     # Custom OpenCV / YOLOv8 ROS 2 nodes
+│   └── maverick_teleop/         # Keyboard / Web-based teleoperation converters
+├── server_backend/              # High-performance control API
+│   ├── app/
+│   │   ├── main.py              # FastAPI server entry point
+│   │   ├── vision_pipeline.py   # TensorRT inference manager
+│   │   └── websocket_manager.py # Real-time telemetry broadcast
+└── ui_dashboard/                # Modern Dark-Robotics HMI Interface
+├── src/
+│   ├── components/          # Glassmorphism widgets, gauges, video streams
+│   ├── pages/               # Dashboard, Navigation, User Management
+│   └── App.tsx              # Main UI component with Framer Motion animations
+
+### Stack Breakdown
+
+* **Operating System:** Ubuntu 22.04 LTS (Linux) / JetPack 5.x / 6.x
+* **Middleware & Robotics:** ROS 2 (Humble Hawksbill), Nav2 Stack, SLAM Toolbox
+* **Languages:** C++17 (Low-Level & High-Performance Nodes), Python 3.10+, TypeScript
+* **Computer Vision & AI:** OpenCV, CUDA, TensorRT, YOLOv8 (Ultralytics), DeepFace, FaceNet, Dlib
+* **Backend Engine:** FastAPI, Uvicorn, WebSockets, Python-Serial, Supabase
+* **Frontend UI Engine:** React 18, Vite, TypeScript, Tailwind CSS, Framer Motion
+
+---
+
+## 🧠 AI Models & Computer Vision Pipelines
+
+MAVERICK executes three distinct vision streams optimized for real-time edge performance:
+
+### 1. Spatial Perception (Front & Rear Cameras)
+* **Object Detection:** **YOLOv8** optimized via **NVIDIA TensorRT** for real-time detection of dynamic obstacles (pedestrians, vehicles, indoor barriers, furniture, stairs).
+* **Floor & Sign Recognition:** Custom CV pipelines for surface integrity assessment and indoor navigation sign identification.
+
+### 2. Driver Monitoring System (DMS - User-Facing Camera)
+* **Face Verification & Identity:** **FaceNet / DeepFace** embeddings matched against local profiles stored in Supabase/Local DB for personalized access.
+* **Drowsiness & Fatigue Detection:** Facial landmark extraction via **Dlib** to compute the **Eye Aspect Ratio (EAR)** and **Mouth Aspect Ratio (MAR)** in real time. Triggers warnings when micro-sleep is detected.
+* **Head Pose Estimation:** 3D projection analysis tracking user attention and orientation.
+* **Seatbelt Safety Interlock:** Neural network check ensuring seatbelt engagement prior to motor actuation release.
+
+---
+
+## 🔌 Embedded Systems & Low-Level Control
+
+The **ESP32** handles low-latency tasks required for physical execution and safety:
+
+* **Differential Drive Control:** Generates dual high-frequency PWM channels for two **BTS7960** drivers, translating speed ($v$) and angular velocity ($\omega$) from ROS 2 `/cmd_vel` topics into exact voltage outputs.
+* **Hard Emergency Brake (Ultrasonic Array):** Independent hardware interrupt loop evaluating data from 6x **HC-SR04** sensors. Overrides incoming movement commands if an obstacle breaches the critical safety zone ($<30\text{ cm}$).
+* **IMU Fusion:** Continuously samples angular velocity and linear acceleration, publishing telemetry back to the Jetson Orin Nano over high-baud UART for EKF-based state estimation.
+
+---
+
+## 🖥️ User Dashboard & Web Interface
+
+Designed using **NEURONIX Dark-Robotics UI Standards** (Glassmorphism, high contrast, smooth telemetry visualization):
+
+* **Real-time Video Feeds:** Low-latency mJPEG/WebSocket camera streams with AI bounding-box overlays.
+* **Control Center:** Instant switching between **Manual Driving Mode** (onscreen joystick/keyboard teleop) and **Autonomous Navigation Mode**.
+* **Mapping & Goals:** Interactive navigation map allowing points of interest (POIs) and destination selections.
+* **System Telemetry:** Live visualization of speed, IMU pitch/roll/yaw, battery state-of-charge, active warnings, and AI safety interlocks.
+
+---
+
+## 🔄 System Integration & Workflow
+
+<p align="center">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Workflow.jpeg" width="650" alt="MAVERICK Banner">
+</p>
+
++------------------+     +-------------------+     +------------------+
+| Driver Face /    |     | Front / Rear RGB  |     | Ultrasonic Array |
+| User Detection   |     | Camera Perception |     | & IMU Sensors    |
++--------+---------+     +---------+---------+     +--------+---------+
+|                         |                        |
+v                         v                        v
++------------------+     +-------------------+     +------------------+
+| User Identity &  |     | YOLOv8 / TensorRT |     | ESP32 Hard Safety|
+| Safety Verified? |     | Spatial Bounding  |     | Distance Check   |
++--------+---------+     +---------+---------+     +--------+---------+
+|                          |                        |
++-------------+------------+                        |
+|                                     |
+v                                     v
++--------------------------+              +-------------------+
+| ROS 2 Nav2 / Path Planner|              | Emergency Brake / |
+| Compute Velocity (/cmd_vel)|            | Override Trigger  |
++-------------+------------+              +---------+---------+
+|                                     |
++------------------+------------------+
+|
+v
++-----------------------+
+| ESP32 Dual PWM Output |
+| BTS7960 Drive Motors  |
++-----------------------+
+
+1. **Authentication:** The system verifies the user via the front-facing camera using FaceNet.
+2. **Safety Check:** System confirms seatbelt fastening and ensures driver alert status (EAR thresholds).
+3. **Target Selection:** User selects an autonomous target destination via the 7-inch HMI Touchscreen.
+4. **Path Planning:** ROS 2 Nav2 computes the optimal path while avoiding local static/dynamic obstacles via YOLOv8 and costmap feedback.
+5. **Execution & Interlocks:** Drive commands translate to motor movements. If an unforeseen obstacle appears within close range, the ESP32 Ultrasonic array triggers an emergency override, coming to a soft-stop independently of high-level software loops.
+
+---
