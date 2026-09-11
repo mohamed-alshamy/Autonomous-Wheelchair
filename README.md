@@ -58,32 +58,26 @@ Designed natively for the **NVIDIA Jetson Orin Nano (8GB)** running **ROS 2**, M
 
 The system operates on a multi-tiered architecture separating **High-Level Compute (Edge AI & Navigation)** from **Low-Level Actuation (Microcontroller & Power Electronics)**:
 
-+-----------------------------------------------------------------------------------+
-|                               HIGH-LEVEL COMPUTE                                  |
-|                      [NVIDIA Jetson Orin Nano 8GB / Mini PC]                      |
-|                                                                                   |
-|  +-------------------------+  +--------------------------+  +------------------+  |
-|  |   Perception & AI       |  |  ROS 2 Autonomous Nav    |  | Web & Telemetry  |  |
-|  | - YOLOv8 (Obstacles)    |  | - Nav2 Stack / SLAM      |  | - FastAPI Server |  |
-|  | - FaceNet / Dlib        |  | - Local/Global Costmaps  |  | - React Web App  |  |
-|  | - Drowsiness / Seatbelt |  | - EKF State Estimation   |  | - WebSockets/mJPEG| |
-|  +-------------------------+  +--------------------------+  +------------------+  |
-+-----------------------------------------------------------------------------------+
-│
-Bidirectional Serial / UART Bridge
-│
-+-----------------------------------------------------------------------------------+
-|                               LOW-LEVEL EMBEDDED                                  |
-|                            [ESP32 Microcontroller]                                |
-|                                                                                   |
-|  +-----------------------+  +-------------------------+  +---------------------+  |
-|  |  Safety Interlocks    |  | Ultrasonic Proximity    |  | IMU Feedback        |  |
-|  | - Emergency E-Stop    |  | - 6x HC-SR04 Sensors    |  | - Closed-loop Yaw   |  |
-|  +-----------------------+  +-------------------------+  +---------------------+  |
-|                                         │                                         |
-|                             PWM / Direction Control                               |
-|                                         │                                         |
-|                     2x BTS7960 Dual H-Bridge Motor Drivers                        |
-|                                         │                                         |
-|                    2x ZD101ZA1 24V 250W DC Motors (160 RPM)                       |
-+-----------------------------------------------------------------------------------+
+---
+
+## 🛠 Hardware Specifications
+
+| Component Category | Hardware Model / Details | Functional Role |
+| :--- | :--- | :--- |
+| **Compute Engine** | NVIDIA Jetson Orin Nano (8GB) | High-level perception, deep learning inference, ROS 2 Nav2, local server |
+| **Primary Storage** | NVMe M.2 SSD | High-speed OS host, deep learning models, logging database |
+| **User Display** | 7-inch Capacitive Touchscreen | Local human-machine interface (HMI) for navigation & status |
+| **Low-Level MCU** | ESP32-WROOM (38-Pin) | Real-time motor PWM control, sensor reading, hard safety stops |
+| **Motor Drivers** | 2x BTS7960 High-Power H-Bridges | Differential motor speed & directional drive execution |
+| **Drive Actuators** | 2x ZD101ZA1 Brushed DC Motors | 24V DC, 250W per motor, 160 RPM high-torque output |
+| **Primary Battery** | 24V / 12Ah Lithium-Ion Battery Pack | Dedicated power delivery for motors & drive electronics |
+| **Compute Battery** | 19.5V Auxiliary Power Pack | Isolated clean power supply for Jetson Orin Nano / Mini PC |
+| **Front Vision** | RGB Navigation Camera | High-framerate forward object detection, sign detection, lane awareness |
+| **Rear Vision** | RGB Rear Safety Camera | Blind-spot spatial monitoring during reverse/maneuvers |
+| **User Vision** | RGB Driver-Facing Camera | Face verification, eye-aspect ratio (EAR) drowsiness monitoring |
+| **Proximity Sensing**| 6x HC-SR04 Ultrasonic Sensors | 360-degree close-range collision boundary detection |
+| **Spatial Motion** | 6-DOF IMU (Inertial Measurement Unit) | Real-time orientation tracking, tilt sensing, and dead reckoning |
+
+---
+
+## 💻 Software & Technology Stack
