@@ -174,3 +174,41 @@ Designed using **NEURONIX Dark-Robotics UI Standards** (Glassmorphism, high cont
 5. **Execution & Interlocks:** Drive commands translate to motor movements. If an unforeseen obstacle appears within close range, the ESP32 Ultrasonic array triggers an emergency override, coming to a soft-stop independently of high-level software loops.
 
 ---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+Ensure your host environment runs **Ubuntu 22.04 LTS** with **ROS 2 Humble** installed.
+
+```bash
+# Clone the repository with all submodules
+git clone [https://github.com/mohamed-alshamy/Autonomous-Wheelchair.git](https://github.com/mohamed-alshamy/Autonomous-Wheelchair.git)
+cd Autonomous-Wheelchair
+
+1. ROS 2 Workspace Build
+cd maverick_ros2
+colcon build --symlink-install
+source install/setup.bash
+
+2. Backend Server Setup
+cd ../server_backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+3. Frontend Dashboard Launch
+cd ../ui_dashboard
+npm install
+npm run dev
+
+👥 Engineering & Credits
+Project MAVERICK is designed, architected, and maintained by:
+
+Mohamed Elsayed Alshamy — Lead System Architect, AI & Robotics Engineer
+
+Developed as a flagship intelligent mobility platform under NEURONIX Intelligence.
+
+📄 License
+This repository is distributed under the MIT License. See the LICENSE file for details.
