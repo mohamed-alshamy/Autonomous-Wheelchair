@@ -89,46 +89,18 @@ Safety-related capabilities include:
 # 🧩 System Architecture
 
 <p align="center">
-  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Architecture.png" width="850">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Architecture.jpeg" width="850">
 </p>
 
-The system follows a modular architecture that integrates **AI, computer vision, robotics, embedded systems, backend services, and a user dashboard**.
+The system architecture integrates the wheelchair's **AI, Computer Vision, Autonomous Navigation, Embedded Control, Backend, Database, and User Interface** into a unified intelligent mobility platform.
 
-### Main Architecture
+The architecture is built around the **NVIDIA Jetson Orin Nano** for high-level AI and perception, while the **ESP32** handles low-level real-time control and communication with the wheelchair's drive system.
 
-```text
-                    ┌────────────────────────────┐
-                    │       Cameras / Sensors    │
-                    └─────────────┬──────────────┘
-                                  │
-                                  ▼
-                    ┌────────────────────────────┐
-                    │   NVIDIA Jetson Orin Nano  │
-                    │           8 GB             │
-                    │                            │
-                    │   AI / Computer Vision      │
-                    │   Navigation               │
-                    │   User Recognition         │
-                    │   Safety Monitoring         │
-                    └─────────────┬──────────────┘
-                                  │
-                             ROS 2 Humble
-                                  │
-                ┌─────────────────┴─────────────────┐
-                │                                   │
-                ▼                                   ▼
-      ┌─────────────────────┐             ┌─────────────────────┐
-      │      FastAPI        │             │        ESP32        │
-      │   Backend / API     │             │  Embedded Control   │
-      └──────────┬──────────┘             └──────────┬──────────┘
-                 │                                   │
-                 ▼                                   ▼
-      ┌─────────────────────┐             ┌─────────────────────┐
-      │   React Dashboard   │             │    Motor Drivers    │
-      └──────────┬──────────┘             └──────────┬──────────┘
-                 │                                   │
-                 ▼                                   ▼
-          ┌──────────────┐                   ┌─────────────────┐
-          │   Supabase   │                   │ Wheelchair      │
-          │   Database   │                   │ Motors          │
-          └──────────────┘                   └─────────────────┘
+The complete system is organized into:
+
+- 🧠 **AI & Computer Vision**
+- 🤖 **Autonomous Navigation**
+- 🔌 **Embedded Control**
+- 🌐 **Backend & Database**
+- 🖥️ **User Dashboard**
+- ⚙️ **Motor & Hardware Control**
