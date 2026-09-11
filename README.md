@@ -31,6 +31,7 @@ The project was developed as a graduation project with a focus on integrating:
 ## 🚀 Features
 
 ### 🤖 Autonomous Navigation
+
 - Autonomous movement and navigation
 - Real-time environmental perception
 - Obstacle detection and avoidance
@@ -58,7 +59,7 @@ The project was developed as a graduation project with a focus on integrating:
 
 ### 🛡️ Safety System
 
-The wheelchair continuously monitors important safety conditions and can use computer vision and sensor feedback to detect potentially unsafe situations.
+The wheelchair continuously monitors important safety conditions using computer vision, sensors, and embedded control.
 
 Safety-related capabilities include:
 
@@ -85,72 +86,49 @@ Safety-related capabilities include:
 
 ---
 
-## 🧠 AI & Computer Vision
+# 🧩 System Architecture
 
-The wheelchair uses Edge AI to perform real-time computer vision directly on the onboard computing platform.
+<p align="center">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Architecture.png" width="850">
+</p>
 
-### Object Detection
+The system follows a modular architecture that integrates **AI, computer vision, robotics, embedded systems, backend services, and a user dashboard**.
 
-**YOLOv8n** is used for lightweight real-time object detection while maintaining a balance between inference speed and detection performance.
-
-### Face Recognition
-
-The system uses:
-
-- DeepFace
-- FaceNet-based embeddings
-- User identification
-
-This allows the wheelchair to recognize registered users and associate them with their personalized profiles.
-
-### Drowsiness Detection
-
-The drowsiness monitoring system combines visual indicators such as:
-
-- Eye Aspect Ratio (EAR)
-- Mouth Aspect Ratio (MAR)
-- Head Pose
-
-These signals can be used together to estimate whether the user is becoming drowsy.
-
-### Safety Detection
-
-Computer vision modules are also used for:
-
-- Seatbelt detection
-- Floor/sign recognition
-- Environmental object detection
-
----
-
-## 🤖 Autonomous Navigation
-
-The autonomous mobility stack is built around **ROS 2 Humble**.
-
-The navigation architecture is responsible for connecting perception, decision-making, and low-level motor control.
-
-### Navigation Pipeline
+### Main Architecture
 
 ```text
-Cameras / Sensors
-       │
-       ▼
-Computer Vision
-       │
-       ▼
-Environment Perception
-       │
-       ▼
-Navigation / Decision Making
-       │
-       ▼
-ROS 2 Control Layer
-       │
-       ▼
-ESP32
-       │
-       ▼
-Motor Drivers
-       │
-       ▼
-Wheelchair Motors
+                    ┌────────────────────────────┐
+                    │       Cameras / Sensors    │
+                    └─────────────┬──────────────┘
+                                  │
+                                  ▼
+                    ┌────────────────────────────┐
+                    │   NVIDIA Jetson Orin Nano  │
+                    │           8 GB             │
+                    │                            │
+                    │   AI / Computer Vision      │
+                    │   Navigation               │
+                    │   User Recognition         │
+                    │   Safety Monitoring         │
+                    └─────────────┬──────────────┘
+                                  │
+                             ROS 2 Humble
+                                  │
+                ┌─────────────────┴─────────────────┐
+                │                                   │
+                ▼                                   ▼
+      ┌─────────────────────┐             ┌─────────────────────┐
+      │      FastAPI        │             │        ESP32        │
+      │   Backend / API     │             │  Embedded Control   │
+      └──────────┬──────────┘             └──────────┬──────────┘
+                 │                                   │
+                 ▼                                   ▼
+      ┌─────────────────────┐             ┌─────────────────────┐
+      │   React Dashboard   │             │    Motor Drivers    │
+      └──────────┬──────────┘             └──────────┬──────────┘
+                 │                                   │
+                 ▼                                   ▼
+          ┌──────────────┐                   ┌─────────────────┐
+          │   Supabase   │                   │ Wheelchair      │
+          │   Database   │                   │ Motors          │
+          └──────────────┘                   └─────────────────┘
