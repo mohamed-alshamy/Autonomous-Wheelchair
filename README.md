@@ -130,6 +130,10 @@ MAVERICK executes three distinct vision streams optimized for real-time edge per
 * **Head Pose Estimation:** 3D projection analysis tracking user attention and orientation.
 * **Seatbelt Safety Interlock:** Neural network check ensuring seatbelt engagement prior to motor actuation release.
 
+<p align="center">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/AI%20Models.jpeg" width="650" alt="MAVERICK Banner">
+</p>
+
 ---
 
 ## 🔌 Embedded Systems & Low-Level Control
@@ -151,6 +155,10 @@ Designed using **NEURONIX Dark-Robotics UI Standards** (Glassmorphism, high cont
 * **Mapping & Goals:** Interactive navigation map allowing points of interest (POIs) and destination selections.
 * **System Telemetry:** Live visualization of speed, IMU pitch/roll/yaw, battery state-of-charge, active warnings, and AI safety interlocks.
 
+<p align="center">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/Dashboard" width="650" alt="MAVERICK Banner">
+</p>
+
 ---
 
 ## 🔄 System Integration & Workflow
@@ -158,33 +166,6 @@ Designed using **NEURONIX Dark-Robotics UI Standards** (Glassmorphism, high cont
 <p align="center">
   <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/System%20Workflow.jpeg" width="650" alt="MAVERICK Banner">
 </p>
-
-+------------------+     +-------------------+     +------------------+
-| Driver Face /    |     | Front / Rear RGB  |     | Ultrasonic Array |
-| User Detection   |     | Camera Perception |     | & IMU Sensors    |
-+--------+---------+     +---------+---------+     +--------+---------+
-|                         |                        |
-v                         v                        v
-+------------------+     +-------------------+     +------------------+
-| User Identity &  |     | YOLOv8 / TensorRT |     | ESP32 Hard Safety|
-| Safety Verified? |     | Spatial Bounding  |     | Distance Check   |
-+--------+---------+     +---------+---------+     +--------+---------+
-|                          |                        |
-+-------------+------------+                        |
-|                                     |
-v                                     v
-+--------------------------+              +-------------------+
-| ROS 2 Nav2 / Path Planner|              | Emergency Brake / |
-| Compute Velocity (/cmd_vel)|            | Override Trigger  |
-+-------------+------------+              +---------+---------+
-|                                     |
-+------------------+------------------+
-|
-v
-+-----------------------+
-| ESP32 Dual PWM Output |
-| BTS7960 Drive Motors  |
-+-----------------------+
 
 1. **Authentication:** The system verifies the user via the front-facing camera using FaceNet.
 2. **Safety Check:** System confirms seatbelt fastening and ensures driver alert status (EAR thresholds).
