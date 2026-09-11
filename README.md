@@ -85,25 +85,25 @@ The system operates on a multi-tiered architecture separating **High-Level Compu
 Project-MAVERICK/
 ├── docs/                        # Architecture diagrams, mechanical CAD & specifications
 ├── firmware_esp32/              # Low-level C++ Arduino/FreeRTOS embedded code
-│   ├── src/
-│   │   ├── main.cpp             # Serial parser, PWM generator, state machines
-│   │   ├── motors.cpp           # BTS7960 driver integration
-│   │   └── sensors.cpp          # Ultrasonic array & IMU processing
+│   └── src/
+│       ├── main.cpp             # Serial parser, PWM generator, state machines
+│       ├── motors.cpp           # BTS7960 driver integration
+│       └── sensors.cpp          # Ultrasonic array & IMU processing
 ├── maverick_ros2/               # ROS 2 Workspaces & packages
 │   ├── maverick_bringup/        # System-wide launch files & configurations
 │   ├── maverick_navigation/     # Nav2 parameters, costmaps, planner configs
 │   ├── maverick_perception/     # Custom OpenCV / YOLOv8 ROS 2 nodes
 │   └── maverick_teleop/         # Keyboard / Web-based teleoperation converters
 ├── server_backend/              # High-performance control API
-│   ├── app/
-│   │   ├── main.py              # FastAPI server entry point
-│   │   ├── vision_pipeline.py   # TensorRT inference manager
-│   │   └── websocket_manager.py # Real-time telemetry broadcast
+│   └── app/
+│       ├── main.py              # FastAPI server entry point
+│       ├── vision_pipeline.py   # TensorRT inference manager
+│       └── websocket_manager.py # Real-time telemetry broadcast
 └── ui_dashboard/                # Modern Dark-Robotics HMI Interface
-├── src/
-│   ├── components/          # Glassmorphism widgets, gauges, video streams
-│   ├── pages/               # Dashboard, Navigation, User Management
-│   └── App.tsx              # Main UI component with Framer Motion animations
+    └── src/
+        ├── components/          # Glassmorphism widgets, gauges, video streams
+        ├── pages/               # Dashboard, Navigation, User Management
+        └── App.tsx              # Main UI component with Framer Motion animations
 
 ### Stack Breakdown
 
