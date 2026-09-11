@@ -57,3 +57,33 @@ Designed natively for the **NVIDIA Jetson Orin Nano (8GB)** running **ROS 2**, M
 </p>
 
 The system operates on a multi-tiered architecture separating **High-Level Compute (Edge AI & Navigation)** from **Low-Level Actuation (Microcontroller & Power Electronics)**:
+
++-----------------------------------------------------------------------------------+
+|                               HIGH-LEVEL COMPUTE                                  |
+|                      [NVIDIA Jetson Orin Nano 8GB / Mini PC]                      |
+|                                                                                   |
+|  +-------------------------+  +--------------------------+  +------------------+  |
+|  |   Perception & AI       |  |  ROS 2 Autonomous Nav    |  | Web & Telemetry  |  |
+|  | - YOLOv8 (Obstacles)    |  | - Nav2 Stack / SLAM      |  | - FastAPI Server |  |
+|  | - FaceNet / Dlib        |  | - Local/Global Costmaps  |  | - React Web App  |  |
+|  | - Drowsiness / Seatbelt |  | - EKF State Estimation   |  | - WebSockets/mJPEG| |
+|  +-------------------------+  +--------------------------+  +------------------+  |
++-----------------------------------------------------------------------------------+
+│
+Bidirectional Serial / UART Bridge
+│
++-----------------------------------------------------------------------------------+
+|                               LOW-LEVEL EMBEDDED                                  |
+|                            [ESP32 Microcontroller]                                |
+|                                                                                   |
+|  +-----------------------+  +-------------------------+  +---------------------+  |
+|  |  Safety Interlocks    |  | Ultrasonic Proximity    |  | IMU Feedback        |  |
+|  | - Emergency E-Stop    |  | - 6x HC-SR04 Sensors    |  | - Closed-loop Yaw   |  |
+|  +-----------------------+  +-------------------------+  +---------------------+  |
+|                                         │                                         |
+|                             PWM / Direction Control                               |
+|                                         │                                         |
+|                     2x BTS7960 Dual H-Bridge Motor Drivers                        |
+|                                         │                                         |
+|                    2x ZD101ZA1 24V 250W DC Motors (160 RPM)                       |
++-----------------------------------------------------------------------------------+
