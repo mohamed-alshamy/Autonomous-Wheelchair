@@ -110,20 +110,46 @@ The system operates on a multi-tiered architecture separating **High-Level Compu
 
 ## 🧠 AI Models & Computer Vision Pipelines
 
-MAVERICK executes three distinct vision streams optimized for real-time edge performance:
+MAVERICK executes multiple AI-powered vision pipelines optimized for real-time edge inference.
+
+### 🤖 Deployed AI Models
+
+The core computer vision models are containerized using **Docker** and publicly available through **Docker Hub**. Each model can be pulled independently and integrated into the MAVERICK perception pipeline.
+
+| Model                  | Function                                           | Docker Image                                                                          |
+| :--------------------- | :------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| **YOLOv8 Detection**   | Real-time object and obstacle detection            | [`shamy028/yolov8_detection`](https://hub.docker.com/r/shamy028/yolov8_detection)     |
+| **Face Verification**  | User identity verification and authentication      | [`shamy028/face_verification`](https://hub.docker.com/r/shamy028/face_verification)   |
+| **Eye Detection**      | Eye-state analysis for drowsiness monitoring       | [`shamy028/eye_detection`](https://hub.docker.com/r/shamy028/eye_detection)           |
+| **Seatbelt Detection** | Seatbelt engagement detection and safety interlock | [`shamy028/seatbelt_detection`](https://hub.docker.com/r/shamy028/seatbelt_detection) |
+
+### 🐳 Docker Model Deployment
+
+Pull the required AI services directly from Docker Hub:
+
+```bash
+docker pull shamy028/yolov8_detection:latest
+docker pull shamy028/face_verification:latest
+docker pull shamy028/eye_detection:latest
+docker pull shamy028/seatbelt_detection:latest
+```
+
+These containerized models provide a reproducible deployment path for the MAVERICK AI inference stack across supported development and edge-computing environments.
 
 ### 1. Spatial Perception (Front & Rear Cameras)
+
 * **Object Detection:** **YOLOv8** optimized via **NVIDIA TensorRT** for real-time detection of dynamic obstacles (pedestrians, vehicles, indoor barriers, furniture, stairs).
 * **Floor & Sign Recognition:** Custom CV pipelines for surface integrity assessment and indoor navigation sign identification.
 
 ### 2. Driver Monitoring System (DMS - User-Facing Camera)
+
 * **Face Verification & Identity:** **FaceNet / DeepFace** embeddings matched against local profiles stored in Supabase/Local DB for personalized access.
 * **Drowsiness & Fatigue Detection:** Facial landmark extraction via **Dlib** to compute the **Eye Aspect Ratio (EAR)** and **Mouth Aspect Ratio (MAR)** in real time. Triggers warnings when micro-sleep is detected.
 * **Head Pose Estimation:** 3D projection analysis tracking user attention and orientation.
 * **Seatbelt Safety Interlock:** Neural network check ensuring seatbelt engagement prior to motor actuation release.
 
 <p align="center">
-  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/AI%20Models.jpeg" width="650" alt="MAVERICK Banner">
+  <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/AI%20Models.jpeg" width="650" alt="MAVERICK AI Models">
 </p>
 
 ---
