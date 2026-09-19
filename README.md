@@ -127,12 +127,12 @@ The core computer vision models are containerized using **Docker** and publicly 
 
 Pull the required AI services directly from Docker Hub:
 
-
+```bash
 docker pull shamy028/yolov8_detection:latest
 docker pull shamy028/face_verification:latest
 docker pull shamy028/eye_detection:latest
 docker pull shamy028/seatbelt_detection:latest
-
+```
 
 These containerized models provide a reproducible deployment path for the MAVERICK AI inference stack across supported development and edge-computing environments.
 
@@ -151,6 +151,7 @@ These containerized models provide a reproducible deployment path for the MAVERI
 <p align="center">
   <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/AI%20Models.jpeg" width="650" alt="MAVERICK AI Models">
 </p>
+
 
 ---
 
