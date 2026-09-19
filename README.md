@@ -42,7 +42,7 @@ Designed natively for the **NVIDIA Jetson Orin Nano (8GB)** running **ROS 2**, M
 
 <p align="center">
   <a href="https://youtu.be/qC3RIVg91yc" target="_blank">
-    <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/NEURONIX.png" width="350" alt="MAVERICK Demo">
+    <img src="https://github.com/mohamed-alshamy/Autonomous-Wheelchair/blob/main/NEURONIX%20Intelligence%20Logo.png" width="350" alt="MAVERICK Demo">
   </a>
 </p>
 
